@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intramurals Sign Up</title>
+
+    <style>
+        body {
+            font-family: "Momo Trust Display", sans-serif;
+            font-weight: 600;
+            color: #775065;
+            background: #ffecfa;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, button {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #775065;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+
+    <div class="collapse navbar-collapse">
+
+
+        <ul class="navbar-nav me-auto"> 
+            <li class="nav-item"> <a class="nav-link" href="index1.html">Sign up</a></li>
+
+            <li class="nav-item"> <a class="nav-link" href="index2.html">Team Checker</a></li>
+
+            <li class="nav-item"> <a class="nav-link" href="index3.html"> Players </a></li>
+
+ 
+    </ul>
+
+    </div>
+</nav>
+
+
+
+<div class="card">
+    <h2>Sign Up</h2>
+
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+
+    <button onclick="signup()">Sign Up</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+    const accounts = {};
+
+    function signup() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const message = document.getElementById("message");
+
+        if (username === "" || password === "") {
+            message.textContent = "Error: Fields cannot be empty.";
+        } 
+        else if (accounts[username]) {
+            message.textContent = "Error: Username already exists.";
+        } 
+        else {
+            accounts[username] = password;
+            message.textContent = "Account created successfully! Welcome, " + username + "." + "may you want to go to the team checker page?";
+        }
+    }
+</script>
+
+</body>
+</html>
